@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Toca Pet Shop Premium | Patos - PB</title>
+  <meta name="description" content="Toca Pet Shop Premium — banho, tosa, hidratação, acessórios, rações e atendimento veterinário.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0b0b0b;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    :root {
+      --yellow: #ffd21c;
+      --yellow2: #ffb800;
+      --black: #080808;
+      --dark: #111111;
+      --gray: #1c1c1c;
+      --white: #ffffff;
+      --text: #d9d9d9;
+    }
+
+    /* HEADER */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(5,5,5,.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,210,28,.15);
+    }
+
+    .nav {
+      max-width: 1200px;
+      margin: auto;
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 22px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 900;
+      letter-spacing: -1px;
+    }
+
+    .logo-mark {
+      width: 43px;
+      height: 43px;
+      border-radius: 50%;
+      background: var(--yellow);
+      color: #111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      box-shadow: 0 0 25px rgba(255,210,28,.25);
+    }
+
+    .logo-text strong {
+      display: block;
+      font-size: 17px;
+    }
+
+    .logo-text span {
+      display: block;
+      color: var(--yellow);
+      font-size: 9px;
+      letter-spacing: 2px;
+      margin-top: 2px;
+    }
+
+    nav {
+      display: flex;
+      gap: 27px;
+      align-items: center;
+    }
+
+    nav a {
+      font-size: 13px;
+      color: #ddd;
+      transition: .3s;
+    }
+
+    nav a:hover {
+      color: var(--yellow);
+    }
+
+    .nav-btn {
+      background: var(--yellow);
+      color: #111;
+      padding: 12px 18px;
+      border-radius: 30px;
+      font-weight: 800;
+    }
+
+    .menu {
+      display: none;
+      font-size: 27px;
+      cursor: pointer;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,.92) 0%, rgba(0,0,0,.72) 43%, rgba(0,0,0,.25) 100%),
+        url("https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=1800&q=90")
+        center/cover;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, #0b0b0b 0%, transparent 20%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      width: 1200px;
+      max-width: 100%;
+      margin: auto;
+      padding: 130px 25px 80px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .tag {
+      display: inline-block;
+      color: var(--yellow);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      max-width: 720px;
+      font-size: clamp(42px, 7vw, 82px);
+      line-height: .95;
+      letter-spacing: -4px;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 span {
+      color: var(--yellow);
+    }
+
+    .hero p {
+      max-width: 570px;
+      color: #ddd;
+      font-size: 18px;
+      line-height: 1.65;
+      margin-bottom: 35px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 16px 24px;
+      border-radius: 40px;
+      font-weight: 800;
+      font-size: 14px;
+      transition: .3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-yellow {
+      background: var(--yellow);
+      color: #111;
+      box-shadow: 0 10px 35px rgba(255,210,28,.18);
+    }
+
+    .btn-yellow:hover {
+      transform: translateY(-3px);
+      background: #ffe05b;
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,.3);
+      background: rgba(255,255,255,.05);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--yellow);
+      color: var(--yellow);
+    }
+
+    /* SECTION */
+
+    section {
+      padding: 100px 22px;
+    }
+
+    .container {
+      max-width: 1150px;
+      margin: auto;
+    }
+
+    .section-label {
+      color: var(--yellow);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(32px, 5vw, 52px);
+      letter-spacing: -2px;
+      margin-bottom: 15px;
+    }
+
+    .section-text {
+      color: #aaa;
+      line-height: 1.7;
+      max-width: 650px;
+      margin-bottom: 45px;
+    }
+
+    /* SERVICES */
+
+    .services {
+      background: #0b0b0b;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: linear-gradient(145deg, #181818, #101010);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 24px;
+      padding: 30px;
+      transition: .35s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: var(--yellow);
+      filter: blur(60px);
+      opacity: .07;
+      top: -30px;
+      right: -30px;
+    }
+
+    .card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(255,210,28,.35);
+    }
+
+    .icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 17px;
+      background: rgba(255,210,28,.1);
+      border: 1px solid rgba(255,210,28,.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 25px;
+      margin-bottom: 23px;
+    }
+
+    .card h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #999;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    /* PLAN */
+
+    .plan-section {
+      background: #111;
+    }
+
+    .plan {
+      border-radius: 30px;
+      padding: 50px;
+      background:
+        linear-gradient(110deg, rgba(255,210,28,.12), transparent 55%),
+        #171717;
+      border: 1px solid rgba(255,210,28,.25);
+      display: grid;
+      grid-template-columns: 1.3fr .7fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .plan h3 {
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+
+    .price {
+      font-size: 48px;
+      font-weight: 900;
+      color: var(--yellow);
+      margin: 15px 0 25px;
+    }
+
+    .price small {
+      font-size: 14px;
+      color: #aaa;
+      font-weight: 400;
+    }
+
+    .benefits {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+      margin: 25px 0;
+    }
+
+    .benefits li {
+      color: #ddd;
+      font-size: 14px;
+    }
+
+    .benefits li::before {
+      content: "✓";
+      color: var(--yellow);
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    .plan-side {
+      background: #0d0d0d;
+      border-radius: 24px;
+      padding: 35px;
+      text-align: center;
+    }
+
+    .plan-side .big {
+      font-size: 65px;
+      margin-bottom: 15px;
+    }
+
+    .plan-side p {
+      color: #999;
+      line-height: 1.6;
+    }
+
+    /* ABOUT */
+
+    .about {
+      background: #0b0b0b;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .about-image {
+      height: 500px;
+      border-radius: 30px;
+      background:
+        linear-gradient(0deg, rgba(0,0,0,.25), transparent),
+        url("https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=1000&q=90")
+        center/cover;
+      border: 1px solid rgba(255,255,255,.08);
+    }
+
+    .about-list {
+      display: grid;
+      gap: 18px;
+      margin-top: 30px;
+    }
+
+    .about-item {
+      display: flex;
+      gap: 15px;
+      align-items: flex-start;
+    }
+
+    .check {
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: var(--yellow);
+      color: #111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    .about-item h4 {
+      margin-bottom: 5px;
+    }
+
+    .about-item p {
+      color: #999;
+      line-height: 1.5;
+      font-size: 13px;
+    }
+
+    /* GALLERY */
+
+    .gallery {
+      background: #111;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr .8fr;
+      grid-auto-rows: 230px;
+      gap: 12px;
+    }
+
+    .gallery-item {
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .gallery-item:nth-child(1) {
+      grid-row: span 2;
+      background-image: url("https://images.unsplash.com/photo-1558788353-f76d92427f16?auto=format&fit=crop&w=1000&q=90");
+    }
+
+    .gallery-item:nth-child(2) {
+      background-image: url("https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=800&q=90");
+    }
+
+    .gallery-item:nth-child(3) {
+      background-image: url("https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=800&q=90");
+    }
+
+    .gallery-item:nth-child(4) {
+      background-image: url("https://images.unsplash.com/photo-1560807707-8cc77767d783?auto=format&fit=crop&w=800&q=90");
+    }
+
+    .gallery-item:nth-child(5) {
+      background-image: url("https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=800&q=90");
+    }
+
+    .gallery-item::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(0,0,0,.5), transparent);
+    }
+
+    /* MOMENTS */
+
+    .moments {
+      background: #0b0b0b;
+    }
+
+    .moments-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .moment {
+      min-height: 280px;
+      border-radius: 25px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      overflow: hidden;
+      position: relative;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .moment:nth-child(1) {
+      background-image:
+        linear-gradient(0deg, rgba(0,0,0,.85), transparent),
+        url("https://images.unsplash.com/photo-1601758228041-f3b2795255f1?auto=format&fit=crop&w=900&q=90");
+    }
+
+    .moment:nth-child(2) {
+      background-image:
+        linear-gradient(0deg, rgba(0,0,0,.85), transparent),
+        url("https://images.unsplash.com/photo-1558788353-f76d92427f16?auto=format&fit=crop&w=900&q=90");
+    }
+
+    .moment:nth-child(3) {
+      background-image:
+        linear-gradient(0deg, rgba(0,0,0,.85), transparent),
+        url("https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=900&q=90");
+    }
+
+    .moment h3 {
+      font-size: 24px;
+      margin-bottom: 7px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .moment p {
+      color: #ddd;
+      font-size: 13px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* LOCATION */
+
+    .contact {
+      background: #111;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .contact-card {
+      background: #181818;
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 25px;
+      padding: 30px;
+    }
+
+    .contact-card h3 {
+      margin-bottom: 25px;
+      font-size: 22px;
+    }
+
+    .contact-row {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 22px;
+    }
+
+    .contact-icon {
+      color: var(--yellow);
+      font-size: 21px;
+      width: 25px;
+    }
+
+    .contact-row strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .contact-row span {
+      color: #999;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    /* CTA */
+
+    .cta {
+      padding: 80px 22px;
+      text-align: center;
+      background:
+        radial-gradient(circle at center, rgba(255,210,28,.12), transparent 55%),
+        #080808;
+    }
+
+    .cta h2 {
+      font-size: clamp(35px, 6vw, 60px);
+      letter-spacing: -2px;
+      margin-bottom: 15px;
+    }
+
+    .cta p {
+      color: #999;
+      margin-bottom: 30px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 35px 22px;
+      background: #050505;
+      border-top: 1px solid rgba(255,255,255,.06);
+    }
+
+    .footer-inner {
+      max-width: 1150px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    footer p {
+      color: #666;
+      font-size: 12px;
+    }
+
+    .instagram {
+      color: var(--yellow);
+      font-weight: bold;
+      font-size: 13px;
+    }
+
+    /* WHATSAPP */
+
+    .whatsapp {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: #25d366;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 27px;
+      z-index: 999;
+      box-shadow: 0 8px 30px rgba(0,0,0,.4);
+      transition: .3s;
+    }
+
+    .whatsapp:hover {
+      transform: scale(1.08);
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 850px) {
+
+      nav {
+        display: none;
+        position: absolute;
+        top: 76px;
+        left: 0;
+        width: 100%;
+        padding: 25px;
+        background: rgba(8,8,8,.98);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .menu {
+        display: block;
+      }
+
+      .nav-btn {
+        display: none;
+      }
+
+      .hero {
+        min-height: 760px;
+        background-position: 65% center;
+      }
+
+      .hero-content {
+        padding-top: 160px;
+      }
+
+      .hero h1 {
+        letter-spacing: -2px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .plan {
+        grid-template-columns: 1fr;
+        padding: 30px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-image {
+        height: 350px;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: 180px;
+      }
+
+      .gallery-item:nth-child(1) {
+        grid-row: span 2;
+      }
+
+      .moments-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+
+      section {
+        padding: 75px 18px;
+      }
+
+      .hero-content {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .hero h1 {
+        font-size: 47px;
+      }
+
+      .buttons {
+        flex-direction: column;
+      }
+
+      .btn {
+        justify-content: center;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: 145px;
+      }
+
+      .gallery-item {
+        border-radius: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header>
+    <div class="nav">
+
+      <a href="#inicio" class="logo">
+        <div class="logo-mark">🐾</div>
+
+        <div class="logo-text">
+          <strong>TOCA PET SHOP</strong>
+          <span>PREMIUM</span>
+        </div>
+      </a>
+
+      <nav id="menu">
+        <a href="#inicio">Início</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#plano">Plano Mensal</a>
+        <a href="#galeria">Galeria</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#contato">Contato</a>
+      </nav>
+
+      <a class="nav-btn"
+         href="https://wa.me/5583996987447"
+         target="_blank">
+        Agendar
+      </a>
+
+      <div class="menu" onclick="toggleMenu()">☰</div>
+
+    </div>
+  </header>
+
+
+  <!-- HERO -->
+
+  <section class="hero" id="inicio">
+
+    <div class="hero-content">
+
+      <div class="tag">
+        ✦ Centro de Estética & Pet Shop
+      </div>
+
+      <h1>
+        Cuidado que seu pet
+        <span>merece.</span>
+      </h1>
+
+      <p>
+        Banho, tosa, hidratação, acessórios, rações
+        e atendimento veterinário em um só lugar.
+        Na Toca, seu pet recebe cuidado, carinho e atenção.
+      </p>
+
+      <div class="buttons">
+
+        <a class="btn btn-yellow"
+           href="https://wa.me/5583996987447"
+           target="_blank">
+          🐾 Agendar atendimento
+        </a>
+
+        <a class="btn btn-outline"
+           href="#servicos">
+          Conhecer serviços →
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SERVIÇOS -->
+
+  <section class="services" id="servicos">
+
+    <div class="container">
+
+      <div class="section-label">O que fazemos</div>
+
+      <h2 class="section-title">
+        Tudo para cuidar<br>
+        do seu melhor amigo.
+      </h2>
+
+      <p class="section-text">
+        Um espaço pensado para oferecer praticidade,
+        cuidado e uma experiência especial para você
+        e seu pet.
+      </p>
+
+      <div class="cards">
+
+        <div class="card">
+          <div class="icon">🛁</div>
+          <h3>Banho</h3>
+          <p>
+            Higiene e cuidado utilizando produtos
+            profissionais para deixar seu pet limpo,
+            cheiroso e confortável.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">✂️</div>
+          <h3>Tosa</h3>
+          <p>
+            Cuidados estéticos realizados por
+            profissionais preparados para proporcionar
+            conforto e bem-estar.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">💧</div>
+          <h3>Hidratação</h3>
+          <p>
+            Tratamentos para auxiliar no cuidado
+            e na aparência da pelagem do seu pet.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">🩺</div>
+          <h3>Veterinário</h3>
+          <p>
+            Atendimento veterinário, consultas,
+            exames e vacinas.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">🥩</div>
+          <h3>Rações</h3>
+          <p>
+            Opções de alimentação para diferentes
+            necessidades e perfis de pets.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">🎾</div>
+          <h3>Acessórios</h3>
+          <p>
+            Brinquedos e acessórios para deixar
+            a rotina do seu pet ainda mais divertida.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PLANO MENSAL -->
+
+  <section class="plan-section" id="plano">
+
+    <div class="container">
+
+      <div class="plan">
+
+        <div>
+
+          <div class="section-label">
+            Cuidado contínuo
+          </div>
+
+          <h3>Plano Mensal Toca</h3>
+
+          <p class="section-text">
+            Uma opção prática para manter os cuidados
+            do seu pet durante o mês.
+          </p>
+
+          <div class="price">
+            R$ 145,00
+            <small>a partir de</small>
+          </div>
+
+          <ul class="benefits">
+            <li>4 banhos</li>
+            <li>2 hidratações</li>
+            <li>Tosa higiênica</li>
+            <li>Limpeza de ouvidos</li>
+            <li>Escovação de dentes</li>
+            <li>Mochila + escova de dentes de presente</li>
+          </ul>
+
+          <a class="btn btn-yellow"
+             href="https://wa.me/5583996987447"
+             target="_blank">
+            Quero conhecer o plano
+          </a>
+
+        </div>
+
+        <div class="plan-side">
+          <div class="big">🐶</div>
+          <h3>Mais cuidado.</h3>
+          <p>
+            Mais praticidade para você
+            e mais carinho para seu pet.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SOBRE -->
+
+  <section class="about" id="sobre">
+
+    <div class="container about-grid">
+
+      <div class="about-image"></div>
+
+      <div>
+
+        <div class="section-label">
+          Por que escolher a Toca?
+        </div>
+
+        <h2 class="section-title">
+          Mais que banho<br>
+          e tosa.
+        </h2>
+
+        <p class="section-text">
+          Na Toca Pet Shop Premium, o cuidado com
+          seu pet está no centro de cada atendimento.
+        </p>
+
+        <div class="about-list">
+
+          <div class="about-item">
+            <div class="check">✓</div>
+            <div>
+              <h4>Empresa legalizada</h4>
+              <p>
+                Empresa legalizada nos âmbitos
+                Federal, Estadual e Municipal.
+              </p>
+            </div>
+          </div>
+
+          <div class="about-item">
+            <div class="check">✓</div>
+            <div>
+              <h4>Profissionais qualificados</h4>
+              <p>
+                Equipe preparada para cuidar
+                dos pets com atenção.
+              </p>
+            </div>
+          </div>
+
+          <div class="about-item">
+            <div class="check">✓</div>
+            <div>
+              <h4>Supervisão veterinária</h4>
+              <p>
+                Serviços realizados com supervisão
+                de Médica-Veterinária.
+              </p>
+            </div>
+          </div>
+
+          <div class="about-item">
+            <div class="check">✓</div>
+            <div>
+              <h4>Produtos profissionais</h4>
+              <p>
+                Utilização de produtos profissionais
+                premium.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- GALERIA -->
+
+  <section class="gallery" id="galeria">
+
+    <div class="container">
+
+      <div class="section-label">Momentos da Toca</div>
+
+      <h2 class="section-title">
+        Eles também fazem<br>
+        parte da nossa história.
+      </h2>
+
+      <p class="section-text">
+        Um pouco dos momentos especiais,
+        cuidados e experiências vividas na Toca.
+      </p>
+
+      <div class="gallery-grid">
+
+        <div class="gallery-item"></div>
+        <div class="gallery-item"></div>
+        <div class="gallery-item"></div>
+        <div class="gallery-item"></div>
+        <div class="gallery-item"></div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- DATAS ESPECIAIS -->
+
+  <section class="moments">
+
+    <div class="container">
+
+      <div class="section-label">
+        Datas especiais
+      </div>
+
+      <h2 class="section-title">
+        Cada época tem<br>
+        um momento especial.
+      </h2>
+
+      <p class="section-text">
+        A Toca também entra no clima das datas
+        especiais para criar momentos únicos
+        com os pets.
+      </p>
+
+      <div class="moments-grid">
+
+        <div class="moment">
+          <h3>🌽 Arraiá da Toca</h3>
+          <p>
+            Pets entrando no clima das festas juninas.
+          </p>
+        </div>
+
+        <div class="moment">
+          <h3>🐾 Dia dos Pets</h3>
+          <p>
+            Momentos especiais para celebrar
+            nossos companheiros.
+          </p>
+        </div>
+
+        <div class="moment">
+          <h3>🎉 Datas especiais</h3>
+          <p>
+            Conteúdos e experiências temáticas
+            ao longo do ano.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTATO -->
+
+  <section class="contact" id="contato">
+
+    <div class="container">
+
+      <div class="section-label">Visite a Toca</div>
+
+      <h2 class="section-title">
+        Estamos esperando<br>
+        por vocês.
+      </h2>
+
+      <p class="section-text">
+        Entre em contato para consultar horários,
+        valores e agendar o atendimento do seu pet.
+      </p>
+
+      <div class="contact-grid">
+
+        <div class="contact-card">
+
+          <h3>📍 Onde estamos</h3>
+
+          <div class="contact-row">
+            <div class="contact-icon">📍</div>
+            <div>
+              <strong>Endereço</strong>
+              <span>
+                Rua Doutor José Genuíno, 48<br>
+                Centro — Patos, PB
+              </span>
+            </div>
+          </div>
+
+          <div class="contact-row">
+            <div class="contact-icon">📱</div>
+            <div>
+              <strong>WhatsApp</strong>
+              <span>
+                (83) 99698-7447
+              </span>
+            </div>
+          </div>
+
+          <a class="btn btn-yellow"
+             href="https://wa.me/5583996987447"
+             target="_blank">
+            Falar pelo WhatsApp
+          </a>
+
+        </div>
+
+
+        <div class="contact-card">
+
+          <h3>🕐 Horários</h3>
+
+          <div class="contact-row">
+            <div class="contact-icon">•</div>
+            <div>
+              <strong>Segunda a sexta</strong>
+              <span>07:30 às 18:00</span>
+            </div>
+          </div>
+
+          <div class="contact-row">
+            <div class="contact-icon">•</div>
+            <div>
+              <strong>Sábado</strong>
+              <span>07:30 às 13:30</span>
+            </div>
+          </div>
+
+          <div class="contact-row">
+            <div class="contact-icon">•</div>
+            <div>
+              <strong>Domingo</strong>
+              <span>Fechado</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CTA -->
+
+  <section class="cta">
+
+    <div class="container">
+
+      <h2>
+        Seu pet merece<br>
+        <span style="color:#ffd21c;">uma experiência Toca.</span>
+      </h2>
+
+      <p>
+        Agende seu atendimento pelo WhatsApp.
+      </p>
+
+      <a class="btn btn-yellow"
+         href="https://wa.me/5583996987447"
+         target="_blank">
+        🐾 Agendar agora
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="footer-inner">
+
+      <p>
+        © 2026 Toca Pet Shop Premium. Todos os direitos reservados.
+      </p>
+
+      <a class="instagram"
+         href="https://www.instagram.com/tocapetshop_premium/"
+         target="_blank">
+        @tocapetshop_premium
+      </a>
+
+    </div>
+
+  </footer>
+
+
+  <!-- WHATSAPP FLUTUANTE -->
+
+  <a class="whatsapp"
+     href="https://wa.me/5583996987447"
+     target="_blank"
+     aria-label="WhatsApp">
+    ☎
+  </a>
+
+
+  <script>
+
+    function toggleMenu() {
+      document.getElementById("menu").classList.toggle("active");
+    }
+
+    document.querySelectorAll("nav a").forEach(function(link) {
+      link.addEventListener("click", function() {
+        document.getElementById("menu").classList.remove("active");
+      });
+    });
+
+  </script>
+
+</body>
+</html>
